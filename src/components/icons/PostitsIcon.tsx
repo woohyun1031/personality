@@ -6,6 +6,7 @@ export default function PostitsIcon() {
       viewBox="0 0 97 95"
       fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
+      className="drop-shadow-md"
     >
       <rect x="12" y="59" width="16" height="22" />
       <rect x="22" y="62" width="16" height="22" />

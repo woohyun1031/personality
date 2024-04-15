@@ -28,8 +28,8 @@ export default function Header() {
 
   return (
     <header
-      className="fixed top-0 z-50 flex h-16 w-full 
-      justify-center bg-opacity-75 px-6 py-3 backdrop-blur-md  dark:bg-gray-600"
+      className="common-animation fixed top-0 z-50 flex h-16 
+      w-full justify-center bg-white bg-opacity-75 px-6 py-3 backdrop-blur-md dark:bg-gray-600"
     >
       <div
         className="mx-2 flex w-full flex-wrap items-center 

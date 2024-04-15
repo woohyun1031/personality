@@ -11,7 +11,7 @@ export default function RootLayout({
 }: RootLayoutProps): React.ReactElement {
   return (
     <html lang="ko" className="h-full w-full scroll-smooth">
-      <body className="bg-background h-full w-full dark:bg-gray-600">
+      <body className="bg-background common-animation h-full w-full dark:bg-gray-600 ">
         <Providers>{children}</Providers>
       </body>
     </html>
