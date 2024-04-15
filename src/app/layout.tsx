@@ -1,6 +1,6 @@
 import '@styles/globals.css';
 import React from 'react';
-import Header from '@components/Header';
+import { Providers } from './providers';
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -11,9 +11,8 @@ export default function RootLayout({
 }: RootLayoutProps): React.ReactElement {
   return (
     <html lang="ko" className="h-full w-full scroll-smooth">
-      <body className="bg-background h-full w-full bg-gray-600">
-        <Header />
-        {children}
+      <body className="bg-background h-full w-full dark:bg-gray-600">
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

@@ -2,7 +2,7 @@ export default function SunIcon() {
   return (
     <svg
       className="h-5 w-5"
-      fill="white"
+      fill="currentColor"
       viewBox="0 0 20 20"
       xmlns="http://www.w3.org/2000/svg"
     >
