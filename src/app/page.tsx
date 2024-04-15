@@ -11,11 +11,11 @@ import React from 'react';
 export default async function Page() {
   return (
     <section className="flex h-screen items-center justify-center p-[5rem]">
-      <div className="flex flex-col">
-        <div className="mb-5 flex justify-end">
-          <div className="common-animation relative h-full text-gray-600 dark:text-white">
+      <div className="flex flex-col items-center">
+        <div className="mb-5 flex w-full flex-row justify-end">
+          <div className="common-animation group relative h-full cursor-pointer text-gray-600 dark:text-white">
             <PostitsIcon />
-            <div className="common-animation absolute bottom-[-80px] right-[-15px] h-full w-[70px] text-gray-600 dark:text-white">
+            <div className="common-animation absolute bottom-[-20px] right-[30px] cursor-pointer text-gray-600 group-hover:animate-sway_animation dark:text-white [&:not(:hover)]:animate-not_sway_animation">
               <PostitIcon />
             </div>
           </div>
