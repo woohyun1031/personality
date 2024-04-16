@@ -11,8 +11,8 @@ export default function Form() {
   const fontSize = isDesktop ? 'text-base' : 'text-xs';
 
   return (
-    <section className="flex h-screen items-center justify-center p-[5rem]">
-      <div className="flex flex-col items-center">
+    <section className="flex h-screen items-center justify-center p-[5rem] ">
+      <div className="flex w-full flex-col items-center xl:flex-row xl:justify-center xl:gap-20">
         <Desk />
         <div className="w-full max-w-[600px]">
           <div className={`mt-16 ${fontSize} text-gray-600 dark:text-white`}>
