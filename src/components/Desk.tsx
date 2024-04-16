@@ -13,6 +13,7 @@ import {
 } from '@/components/icons';
 import Image from 'next/image';
 import React from 'react';
+import Link from 'next/link';
 
 export default function Desk() {
   const isDesktop = useResize('(min-width: 768px)');
@@ -46,7 +47,8 @@ export default function Desk() {
       <div
         className={`mb-5 flex w-full ${componentSizes.photoGroup} flex-row justify-end`}
       >
-        <div
+        <Link
+          href="/gallery"
           className={`common-animation group relative h-full ${componentSizes.photos} cursor-pointer text-gray-600 dark:text-white`}
         >
           <PhotosIcon />
@@ -55,12 +57,13 @@ export default function Desk() {
           >
             <PhotoIcon />
           </div>
-        </div>
+        </Link>
       </div>
       <div
         className={`flex h-full ${componentSizes.deskGroup} items-end justify-center gap-3`}
       >
-        <div
+        <Link
+          href="/book"
           className={`common-animation group relative h-full ${componentSizes.books} cursor-pointer text-gray-600 dark:text-white`}
         >
           <BooksIcon />
@@ -69,8 +72,9 @@ export default function Desk() {
           >
             <BookIcon />
           </div>
-        </div>
-        <div
+        </Link>
+        <Link
+          href="/movie"
           className={`common-animation group relative h-full ${componentSizes.mac} cursor-pointer overflow-hidden text-gray-600 dark:text-white`}
         >
           <div className="relative z-50 overflow-hidden">
@@ -90,8 +94,9 @@ export default function Desk() {
               className="z-10 object-cover opacity-85 brightness-90 dark:opacity-85 dark:brightness-125 "
             />
           </div>
-        </div>
-        <div
+        </Link>
+        <Link
+          href="/music"
           className={`common-animation group relative h-full ${componentSizes.cds} cursor-pointer text-gray-600 dark:text-white`}
         >
           <CDsIcon />
@@ -102,7 +107,7 @@ export default function Desk() {
           >
             <CDIcon />
           </div>
-        </div>
+        </Link>
       </div>
       <div
         className={`common-animation flex ${componentSizes.desk} justify-center text-gray-600 dark:text-white`}
