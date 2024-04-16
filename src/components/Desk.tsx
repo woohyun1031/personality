@@ -63,7 +63,7 @@ export default function Desk() {
         className={`flex h-full ${componentSizes.deskGroup} items-end justify-center gap-3`}
       >
         <Link
-          href="/book"
+          href="/"
           className={`common-animation group relative h-full ${componentSizes.books} cursor-pointer text-gray-600 dark:text-white`}
         >
           <BooksIcon />
@@ -74,7 +74,7 @@ export default function Desk() {
           </div>
         </Link>
         <Link
-          href="/movie"
+          href="/"
           className={`common-animation group relative h-full ${componentSizes.mac} cursor-pointer overflow-hidden text-gray-600 dark:text-white`}
         >
           <div className="relative z-50 overflow-hidden">
@@ -96,7 +96,7 @@ export default function Desk() {
           </div>
         </Link>
         <Link
-          href="/music"
+          href="/"
           className={`common-animation group relative h-full ${componentSizes.cds} cursor-pointer text-gray-600 dark:text-white`}
         >
           <CDsIcon />

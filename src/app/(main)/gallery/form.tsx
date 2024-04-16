@@ -1,7 +1,7 @@
 'use client';
 
 import ImageForm from '@components/ImageForm';
-import { imagesMock } from '@constants/imagesmock';
+import { imagesMock } from '@constants/imagesMock';
 import React from 'react';
 
 export default function Form() {

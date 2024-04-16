@@ -1,6 +1,6 @@
 'use client';
 
-import { imagesMock } from '@constants/imagesmock';
+import { imagesMock } from '@constants/imagesMock';
 import React from 'react';
 
 export default function ImageForm({ id }: { id: string }) {
