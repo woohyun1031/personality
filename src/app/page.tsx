@@ -6,6 +6,7 @@ import PostitIcon from '@/components/icons/PostitIcon';
 import MacIcon from '@components/icons/MacIcon';
 import PostitsIcon from '@components/icons/PostitsIcon';
 import TableIcon from '@components/icons/TableIcon';
+import Image from 'next/image';
 import React from 'react';
 
 export default async function Page() {
@@ -27,8 +28,24 @@ export default async function Page() {
               <BookIcon />
             </div>
           </div>
-          <div className="common-animation h-full w-[180px] text-gray-600 dark:text-white ">
-            <MacIcon />
+          <div className="common-animation group relative h-full w-[180px] cursor-pointer overflow-hidden text-gray-600 dark:text-white">
+            <div className="relative z-50 overflow-hidden">
+              <MacIcon />
+            </div>
+            <div
+              className="common-animation absolute bottom-[6px] 
+              left-[50%] z-10 h-[100px] w-[164px] translate-x-[-50%]
+              overflow-hidden                      
+              text-gray-600
+              group-hover:visible group-hover:animate-purse_animation dark:text-white [&:not(:hover)]:animate-not_purse_animation"
+            >
+              <Image
+                src={'/images/notting-hill.jpg'}
+                fill
+                alt="movie"
+                className="z-10 object-cover opacity-85 brightness-90 dark:opacity-85 dark:brightness-125 "
+              />
+            </div>
           </div>
           <div className="common-animation group relative h-full w-[75px] cursor-pointer text-gray-600 dark:text-white">
             <CDsIcon />

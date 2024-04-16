@@ -6,7 +6,7 @@ export default function MacIcon() {
       viewBox="0 0 285 173"
       fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
-      className="h-full w-full"
+      className="relative z-50 h-full w-full"
     >
       <path d="M0 168C0 166.895 0.895431 166 2 166H283C284.105 166 285 166.895 285 168V171C285 172.105 284.105 173 283 173H2C0.895433 173 0 172.105 0 171V168Z" />
       <path

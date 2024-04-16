@@ -40,8 +40,9 @@ export default function Header() {
           className="relative mr-6 flex h-full flex-shrink-0 
           cursor-pointer items-center text-xl font-bold text-gray-600 dark:text-white"
         >
-          b2m
-          <span className="ml-4 text-base font-normal">book music movie</span>
+          <span className="ml-4 text-base font-normal">
+            book music movie gallery
+          </span>
         </Link>
 
         <button
