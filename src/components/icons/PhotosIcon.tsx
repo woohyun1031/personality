@@ -5,15 +5,14 @@ export default function PhotosIcon() {
       height="95"
       viewBox="0 0 97 95"
       fill="currentColor"
-      xmlns="http://www.w3.org/2000/svg"
       className="h-full w-full drop-shadow-md"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      <rect x="12" y="59" width="16" height="22" />
-      <rect x="22" y="62" width="16" height="22" />
-      <rect y="22" width="16" height="22" />
-      <rect x="23" width="16" height="22" />
-      <rect x="51" y="33" width="16" height="22" />
-      <rect x="81" y="73" width="16" height="22" />
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M39 0H23V22H39V0ZM0 22H16V44H0V22ZM28 59H12V81H22V84H38V62H28V59ZM51 33H67V55H51V33ZM97 73H81V95H97V73Z"
+      />
     </svg>
   );
 }
