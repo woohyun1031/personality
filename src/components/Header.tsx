@@ -5,10 +5,13 @@ import Link from 'next/link';
 import { DarkModeDispatch } from '@contexts/darkModeContext';
 import SunIcon from '@components/icons/SunIcon';
 import MoonIcon from '@components/icons/MoonIcon';
+import { ModalDispatch } from '@/contexts/modalContext';
 
 export default function Header() {
   const { darkModeState, darkModeDispatch } =
     React.useContext(DarkModeDispatch);
+  const { modalDispatch } = React.useContext(ModalDispatch);
+
   const { isDark } = darkModeState;
 
   const changeTheme = React.useCallback(() => {
@@ -26,6 +29,10 @@ export default function Header() {
     }
   }, []);
 
+  function openModal() {
+    modalDispatch({ type: 'show' });
+  }
+
   return (
     <header
       className="common-animation fixed top-0 z-50 flex h-16 
@@ -40,7 +47,7 @@ export default function Header() {
           className="relative flex h-full flex-shrink-0 
           cursor-pointer items-center text-sm font-normal text-gray-600 dark:text-white"
         >
-          book music movie photo
+          my personality
         </Link>
         <div className="flex items-center gap-4">
           <button
@@ -50,6 +57,7 @@ export default function Header() {
             duration-300 hover:text-red-400 active:text-red-600 dark:text-white dark:hover:text-red-400
             dark:active:text-red-600
             "
+            onClick={() => openModal()}
           >
             contact
           </button>

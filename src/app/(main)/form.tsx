@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import Desk from '@/components/Desk';
-import { useResize } from '@/hooks/useResize';
+import Desk from '@components/Desk';
+import { useResize } from '@hooks/useResize';
 
 export default function Form() {
   const isDesktop = useResize('(min-height: 768px)');

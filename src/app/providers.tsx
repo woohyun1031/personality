@@ -6,7 +6,13 @@ import {
   darkModeReducer,
   initialDarkModeState,
 } from '@contexts/darkModeContext';
+import {
+  initialModalState,
+  ModalDispatch,
+  modalReducer,
+} from '@/contexts/modalContext';
 import Header from '@components/Header';
+import ContactModal from '@components/ContactModal';
 
 export function Providers({
   children,
@@ -16,6 +22,11 @@ export function Providers({
   const [darkModeState, darkModeDispatch] = React.useReducer(
     darkModeReducer,
     initialDarkModeState,
+  );
+
+  const [modalState, modalDispatch] = React.useReducer(
+    modalReducer,
+    initialModalState,
   );
 
   React.useEffect(() => {
@@ -37,10 +48,18 @@ export function Providers({
     [darkModeState, darkModeDispatch],
   );
 
+  const modalContextMemo = React.useMemo(
+    () => ({ modalState, modalDispatch }),
+    [modalState, modalDispatch],
+  );
+
   return (
     <DarkModeDispatch.Provider value={darkModeContextMemo}>
-      <Header />
-      {children}
+      <ModalDispatch.Provider value={modalContextMemo}>
+        <Header />
+        {children}
+        <ContactModal />
+      </ModalDispatch.Provider>
     </DarkModeDispatch.Provider>
   );
 }
