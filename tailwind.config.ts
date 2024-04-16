@@ -25,9 +25,9 @@ const config: Config = {
         },
         purse: {
           '0%': { opacity: '0' },
-          '10%': { opacity: '.1' },
+          '10%': { opacity: '.03' },
           '20%': { opacity: '0' },
-          '30%': { opacity: '0.1' },
+          '30%': { opacity: '0.03' },
           '40%': { opacity: '0' },
           '100%': { opacity: '1' },
         },

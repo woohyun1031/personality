@@ -13,7 +13,7 @@ export default async function Page() {
   return (
     <section className="flex h-screen items-center justify-center p-[5rem]">
       <div className="flex flex-col items-center">
-        <div className="mb-5 flex w-full flex-row justify-end">
+        <div className="mb-5 flex w-full max-w-[600px] flex-row justify-end">
           <div className="common-animation group relative h-full cursor-pointer text-gray-600 dark:text-white">
             <PostitsIcon />
             <div className="common-animation absolute bottom-[-20px] right-[30px] cursor-pointer text-gray-600 group-hover:animate-sway_animation dark:text-white [&:not(:hover)]:animate-not_sway_animation">
@@ -60,6 +60,28 @@ export default async function Page() {
         </div>
         <div className="common-animation flex max-w-[550px] justify-center text-gray-600 dark:text-white">
           <TableIcon />
+        </div>
+
+        <div className="w-full max-w-[600px]">
+          <div className="mt-16 text-base text-gray-600 dark:text-white">
+            Through my desk, I'll show you my personality 👋
+          </div>
+
+          <div className="mt-10 text-sm text-gray-600 dark:text-white">
+            My desk represents my individuality expressed through books, music,
+            movie, and photography. Also, I used programming to express aspects
+            of my life that weren't related to programming 🚀 This project drew
+            much inspiration and influence from Interactive Developer Kim
+            Jongmin's 'DESK:where creativity is born' project. <br />
+            I'd like to express my gratitude.
+          </div>
+          <div className="mt-2 text-sm text-gray-600 dark:text-white">
+            Click on each element to see more details.
+          </div>
+
+          <div className="mt-2 text-sm text-gray-600 dark:text-white">
+            Enjoy it!
+          </div>
         </div>
       </div>
     </section>

@@ -37,21 +37,30 @@ export default function Header() {
       >
         <Link
           href="/"
-          className="relative mr-6 flex h-full flex-shrink-0 
-          cursor-pointer items-center text-xl font-bold text-gray-600 dark:text-white"
+          className="relative flex h-full flex-shrink-0 
+          cursor-pointer items-center text-sm font-normal text-gray-600 dark:text-white"
         >
-          <span className="ml-4 text-base font-normal">
-            book music movie gallery
-          </span>
+          book music movie photo
         </Link>
-
-        <button
-          type="button"
-          className="h-5 w-5 text-gray-600 dark:text-white"
-          onClick={() => changeTheme()}
-        >
-          {isDark ? <SunIcon key="sun" /> : <MoonIcon key="moon" />}
-        </button>
+        <div className="flex items-center gap-4">
+          <button
+            type="button"
+            className="
+              text-sm font-normal text-gray-600 
+            duration-300 hover:text-red-400 active:text-red-600 dark:text-white dark:hover:text-red-400
+            dark:active:text-red-600
+            "
+          >
+            contact
+          </button>
+          <button
+            type="button"
+            className="h-5 w-5 text-gray-600 dark:text-white"
+            onClick={() => changeTheme()}
+          >
+            {isDark ? <SunIcon key="sun" /> : <MoonIcon key="moon" />}
+          </button>
+        </div>
       </div>
     </header>
   );
