@@ -1,4 +1,4 @@
-export default function TableIcon() {
+export default function DeskIcon() {
   return (
     <svg
       width="836"

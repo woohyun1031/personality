@@ -1,0 +1,85 @@
+'use client';
+
+import { useResize } from '@hooks/useResize';
+import {
+  BookIcon,
+  BooksIcon,
+  CDIcon,
+  CDsIcon,
+  PhotoIcon,
+  MacIcon,
+  PhotosIcon,
+  DeskIcon,
+} from '@/components/icons';
+import Image from 'next/image';
+import React from 'react';
+
+export default function Desk() {
+  const isDesktop = useResize('(min-width: 768px)');
+
+  const componentSizes = React.useMemo(() => {
+    return {
+      photo: {},
+      photos: {},
+      book: {},
+      books: {},
+      mac: {},
+      screen: {},
+      cd: {},
+      cds: {},
+      desk: {},
+    };
+  }, [isDesktop]);
+  return (
+    <div className="flex flex-col items-center">
+      <div className="mb-5 flex w-full max-w-[600px] flex-row justify-end">
+        <div className="common-animation group relative h-full cursor-pointer text-gray-600 dark:text-white">
+          <PhotosIcon />
+          <div className="common-animation absolute bottom-[-20px] right-[30px] h-[22px] w-[16px] cursor-pointer text-gray-600 group-hover:animate-sway_animation dark:text-white [&:not(:hover)]:animate-not_sway_animation">
+            <PhotoIcon />
+          </div>
+        </div>
+      </div>
+      <div className="flex h-full w-[550px] items-end justify-center gap-3">
+        <div className="common-animation group relative h-full w-[170px] cursor-pointer text-gray-600 dark:text-white">
+          <BooksIcon />
+          <div className="common-animation absolute bottom-[-18px] left-12 h-full w-[15px] text-gray-600 group-hover:-translate-y-6 dark:text-white">
+            <BookIcon />
+          </div>
+        </div>
+        <div className="common-animation group relative h-full w-[180px] cursor-pointer overflow-hidden text-gray-600 dark:text-white">
+          <div className="relative z-50 overflow-hidden">
+            <MacIcon />
+          </div>
+          <div
+            className="common-animation absolute bottom-[6px] 
+              left-[50%] z-10 h-[100px] w-[164px] translate-x-[-50%]
+              overflow-hidden                      
+              text-gray-600
+              group-hover:visible group-hover:animate-purse_animation dark:text-white [&:not(:hover)]:animate-not_purse_animation"
+          >
+            <Image
+              src={'/images/notting-hill.jpg'}
+              fill
+              alt="movie"
+              className="z-10 object-cover opacity-85 brightness-90 dark:opacity-85 dark:brightness-125 "
+            />
+          </div>
+        </div>
+        <div className="common-animation group relative h-full w-[75px] cursor-pointer text-gray-600 dark:text-white">
+          <CDsIcon />
+          <div
+            className="common-animation absolute bottom-[23px] left-0 h-full w-[70px] text-gray-600 
+            group-hover:-translate-y-5
+            group-hover:rotate-[-9deg] dark:text-white"
+          >
+            <CDIcon />
+          </div>
+        </div>
+      </div>
+      <div className="common-animation flex max-w-[550px] justify-center text-gray-600 dark:text-white">
+        <DeskIcon />
+      </div>
+    </div>
+  );
+}
