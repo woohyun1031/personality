@@ -68,10 +68,12 @@ export default function Form() {
       {typeof document !== 'undefined' ? (
         Object.entries(imagesMock).map(([key], idx, array) => {
           const step = Math.ceil((idx + 1) / 3);
-          const maxY = 300 * step;
-          const minY = 300 * (step - 1);
+          const maxY = 400 * step;
+          const minY = 400 * (step - 1);
           const clientWidth = document.body.clientWidth;
-          const x = Math.floor(Math.random() * (clientWidth - 208 + 64) + 64);
+          const x = Math.floor(
+            Math.random() * (clientWidth - (208 + 128)) + 64,
+          );
           const y = Math.floor(Math.random() * (maxY - minY) + minY);
           return (
             <ImageForm
@@ -97,6 +99,10 @@ export default function Form() {
         border-blue-700 bg-blue-500 px-4 py-2 font-bold text-white 
         hover:border-blue-500 hover:bg-blue-400"
         onClick={() => router.refresh()}
+        onTouchStart={(e) => {
+          e.preventDefault();
+          router.refresh();
+        }}
       >
         reflow 🚀
       </button>
