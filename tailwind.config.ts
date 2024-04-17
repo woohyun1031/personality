@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      boxShadow: {
+        custom: '0 20px 80px 0 rgba(0,0,0,0.2)',
+      },
       animation: {
         sway_animation: 'sway 0.3s ease-in-out forwards',
         not_sway_animation: 'not_sway 0.3s ease-in-out forwards',

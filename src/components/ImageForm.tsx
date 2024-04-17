@@ -3,25 +3,76 @@
 import { imagesMock } from '@constants/imagesMock';
 import React from 'react';
 
-export default function ImageForm({ id }: { id: string }) {
-  const ref = React.useRef<any>();
-  const [gridRowEnd, setGridRowEnd] = React.useState<number>();
+const levels = {
+  1: {
+    speed: 1.5,
+    zindex: 10,
+  },
+  2: {
+    speed: 1,
+    zindex: 20,
+  },
+  3: {
+    speed: 0.5,
+    zindex: 30,
+  },
+};
+
+export default function ImageForm({
+  id,
+  index,
+  initPosition,
+}: {
+  id: string;
+  index: number;
+  initPosition: {
+    x: number;
+    y: number;
+  };
+}) {
+  const level = (Math.floor(index % 3) + 1) as 1 | 2 | 3;
+  const positionRef = React.useRef<HTMLDivElement>(null);
+  const imageRef = React.useRef<HTMLImageElement>(null);
   const [loading, setLoading] = React.useState<boolean>(true);
 
   function handleLoad() {
     setLoading(false);
-    setGridRowEnd(+ref.current.clientHeight + 32);
   }
+
+  const scrollAnimate = (prevY: number) => {
+    prevY = prevY ?? 0;
+    const setY = document.setY ?? 0;
+    const rec = positionRef.current?.getBoundingClientRect();
+
+    if (positionRef.current?.style && rec) {
+      if (prevY !== setY) {
+        const newTopValue = `${rec.top + -setY * levels[level].speed}px`;
+        positionRef.current.style.top = newTopValue;
+      }
+      requestAnimationFrame(() => scrollAnimate(setY));
+    }
+  };
+
   React.useEffect(() => {
-    if (ref.current.complete) handleLoad();
+    if (imageRef.current && imageRef.current.complete) handleLoad();
+  }, []);
+
+  React.useEffect(() => {
+    const requestId = requestAnimationFrame(scrollAnimate);
+    return () => cancelAnimationFrame(requestId);
   }, []);
 
   return (
     <div
+      ref={positionRef}
       style={{
-        gridRowEnd: `span ${gridRowEnd}`,
+        left: initPosition.x,
+        top: initPosition.y,
       }}
-      className={`h-full w-full cursor-pointer duration-500 ${
+      className={`absolute z-${
+        levels[level].zindex
+      } w-[208px] cursor-pointer shadow-custom duration-500
+      ${
         loading
           ? 'invisible scale-[0.7] opacity-0'
           : 'opacity-1 visible scale-[1]'
@@ -29,11 +80,14 @@ export default function ImageForm({ id }: { id: string }) {
     >
       <div className="group relative h-auto w-full">
         <img
-          ref={ref}
+          ref={imageRef}
           src={imagesMock[id]}
           alt="img"
-          className={`opacity-1 w-[298px] rounded-sm border-8 border-gray-200 object-contain 
-            duration-300 group-hover:opacity-75 dark:border-white dark:group-hover:opacity-65
+          className={`w-full rounded-sm border-8 border-gray-200 
+            object-contain duration-300 
+            group-hover:brightness-75
+            dark:border-white
+            dark:group-hover:brightness-75
           `}
           onLoad={() => handleLoad()}
         />
