@@ -1,4 +1,4 @@
-export default function CDIcon() {
+export default function AlbumIcon() {
   return (
     <svg
       width="114"

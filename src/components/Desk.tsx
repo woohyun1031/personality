@@ -4,8 +4,8 @@ import { useResize } from '@hooks/useResize';
 import {
   BookIcon,
   BooksIcon,
-  CDIcon,
-  CDsIcon,
+  AlbumIcon,
+  AlbumsIcon,
   PhotoIcon,
   MacIcon,
   PhotosIcon,
@@ -99,13 +99,13 @@ export default function Desk() {
           href="/"
           className={`common-animation group relative h-full ${componentSizes.cds} cursor-pointer text-gray-600 dark:text-white`}
         >
-          <CDsIcon />
+          <AlbumsIcon />
           <div
             className={`common-animation absolute ${componentSizes.cd} text-gray-600 
             group-hover:-translate-y-5
             group-hover:rotate-[-9deg] dark:text-white`}
           >
-            <CDIcon />
+            <AlbumIcon />
           </div>
         </Link>
       </div>
