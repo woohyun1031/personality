@@ -63,7 +63,7 @@ export default function Desk() {
         className={`flex h-full ${componentSizes.deskGroup} items-end justify-center gap-3`}
       >
         <Link
-          href="/"
+          href="/books"
           className={`common-animation group relative h-full ${componentSizes.books} cursor-pointer text-gray-600 dark:text-white`}
         >
           <BooksIcon />
