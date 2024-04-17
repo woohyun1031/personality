@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { ModalDispatch } from '@/contexts/modalContext';
+import { ModalDispatch } from '@contexts/modalContext';
 import LinkButton from './LinkButton';
 import URL from '@constants/url';
 

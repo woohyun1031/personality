@@ -1,6 +1,6 @@
 'use client';
 
-import GridImageForm from '@/components/GridImageForm';
+import GridImageForm from '@components/GridImageForm';
 import { imagesMock } from '@constants/imagesMock';
 import React from 'react';
 

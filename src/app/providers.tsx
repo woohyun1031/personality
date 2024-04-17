@@ -10,7 +10,7 @@ import {
   initialModalState,
   ModalDispatch,
   modalReducer,
-} from '@/contexts/modalContext';
+} from '@contexts/modalContext';
 import Header from '@components/Header';
 import ContactModal from '@components/ContactModal';
 

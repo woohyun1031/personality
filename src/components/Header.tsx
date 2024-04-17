@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { DarkModeDispatch } from '@contexts/darkModeContext';
 import SunIcon from '@components/icons/SunIcon';
 import MoonIcon from '@components/icons/MoonIcon';
-import { ModalDispatch } from '@/contexts/modalContext';
+import { ModalDispatch } from '@contexts/modalContext';
 
 export default function Header() {
   const { darkModeState, darkModeDispatch } =

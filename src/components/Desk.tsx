@@ -10,7 +10,7 @@ import {
   MacIcon,
   PhotosIcon,
   DeskIcon,
-} from '@/components/icons';
+} from '@components/icons';
 import Image from 'next/image';
 import React from 'react';
 import Link from 'next/link';

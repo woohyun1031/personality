@@ -1,6 +1,6 @@
 'use client';
 
-import ImageForm from '@/components/ImageForm';
+import ImageForm from '@components/ImageForm';
 import { imagesMock } from '@constants/imagesMock';
 import { useRouter } from 'next/navigation';
 import React from 'react';
