@@ -1,4 +1,4 @@
-export default function CdsIcon() {
+export default function CDsIcon() {
   return (
     <svg
       width="124"
