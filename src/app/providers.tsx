@@ -13,6 +13,7 @@ import {
 } from '@contexts/modalContext';
 import Header from '@components/Header';
 import ContactModal from '@components/ContactModal';
+import { MacDispatch, macReducer } from '@contexts/macContext';
 
 export function Providers({
   children,
@@ -26,6 +27,11 @@ export function Providers({
 
   const [modalState, modalDispatch] = React.useReducer(
     modalReducer,
+    initialModalState,
+  );
+
+  const [macState, macDispatch] = React.useReducer(
+    macReducer,
     initialModalState,
   );
 
@@ -53,11 +59,18 @@ export function Providers({
     [modalState, modalDispatch],
   );
 
+  const macContextMemo = React.useMemo(
+    () => ({ macState, macDispatch }),
+    [macState, macDispatch],
+  );
+
   return (
     <DarkModeDispatch.Provider value={darkModeContextMemo}>
       <ModalDispatch.Provider value={modalContextMemo}>
-        <Header />
-        {children}
+        <MacDispatch.Provider value={macContextMemo}>
+          <Header />
+          {children}
+        </MacDispatch.Provider>
         <ContactModal />
       </ModalDispatch.Provider>
     </DarkModeDispatch.Provider>

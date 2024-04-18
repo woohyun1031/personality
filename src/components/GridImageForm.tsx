@@ -3,7 +3,7 @@
 import { imagesMock } from '@constants/imagesMock';
 import React from 'react';
 
-export default function ImageForm({ id }: { id: string }) {
+export default function GridImageForm({ id }: { id: string }) {
   const ref = React.useRef<any>();
   const [gridRowEnd, setGridRowEnd] = React.useState<number>();
   const [loading, setLoading] = React.useState<boolean>(true);

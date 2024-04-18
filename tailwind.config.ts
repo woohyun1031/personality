@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      gridTemplateRows: {
+        mac_layout: '1fr auto',
+      },
       boxShadow: {
         custom: '0 20px 80px 0 rgba(0,0,0,0.2)',
       },
@@ -16,6 +19,7 @@ const config: Config = {
         not_sway_animation: 'not_sway 0.3s ease-in-out forwards',
         purse_animation: 'purse .5s ease-in-out forwards',
         not_purse_animation: 'not_purse .5s ease-in-out forwards',
+        scale_up_animation: 'scale_up .5s ease-in-out forwards',
       },
       keyframes: {
         sway: {
@@ -41,6 +45,10 @@ const config: Config = {
           '30%': { opacity: '0.9' },
           '40%': { opacity: '1' },
           '100%': { opacity: '0' },
+        },
+        scale_up: {
+          '0%': { transform: 'scale(0)' },
+          '100%': { transform: 'scale(5) translateX(30%) translateY(-10%)' },
         },
       },
     },
