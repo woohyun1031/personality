@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      transitionTimingFunction: {
+        easeInOutQuart: 'cubic-bezier(0.76, 0, 0.24, 1)',
+      },
       gridTemplateRows: {
         mac_layout: '1fr auto',
       },
@@ -20,6 +23,7 @@ const config: Config = {
         purse_animation: 'purse .5s ease-in-out forwards',
         not_purse_animation: 'not_purse .5s ease-in-out forwards',
         scale_up_animation: 'scale_up .5s ease-in-out forwards',
+        easeOutBounce_animation: 'start_easeOutBounce .6s forwards',
       },
       keyframes: {
         sway: {
