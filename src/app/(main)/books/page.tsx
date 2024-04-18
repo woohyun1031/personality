@@ -3,7 +3,7 @@ import Form from './form';
 
 export default async function Page() {
   return (
-    <section className="h-full w-full overflow-hidden">
+    <section className="mt-20">
       <Form />
     </section>
   );
