@@ -28,7 +28,7 @@ import { imagesMock } from '@constants/imagesMock';
 
 export default function MacModal() {
   const { macState, macDispatch } = React.useContext(MacDispatch);
-  const [currentId, setCurrentId] = React.useState<string>();
+  const [currentId, setCurrentId] = React.useState<string>('1');
   const { isShow } = React.useMemo(() => macState, [macState]);
   const movieArray = React.useMemo(
     () => Object.entries(imagesMock).map(([id, src]) => [id, src]),
