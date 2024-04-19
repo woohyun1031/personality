@@ -9,6 +9,8 @@ export default function Form() {
   const isDesktop = useResize('(min-height: 768px)');
   const isMobile = useResize('(max-height: 600px)');
   const fontSize = isDesktop ? 'text-base' : 'text-xs';
+  const [testArray, setTestArray] = React.useState([1, 2, 3, 4, 5]);
+  const [new_testArray, setNew_TestArray] = React.useState([98, 1, 2, 3, 4, 5]);
 
   return (
     <>
@@ -54,6 +56,51 @@ export default function Form() {
             </div>
           </div>
         </div>
+        {/* <ul className="mr-10">
+          {[...testArray].map((v) => {
+            return (
+              <li
+                className="translate-x-5"
+                key={v}
+                onClick={() => {
+                  const newArr = testArray.slice();
+                  const newnew = [newArr[4], ...newArr.slice(0, 4)];
+                  setTestArray(newnew);
+                }}
+                // onClick={() => {
+                //   const newArr = testArray.slice();
+                //   const newnew = [...newArr.slice(1, 5), newArr[0]];
+                //   setTestArray(newnew);
+                // }}
+              >
+                {v}
+              </li>
+            );
+          })}
+        </ul>
+
+        <ul>
+          {[...new_testArray].map((v) => {
+            return (
+              <li
+                className="translate-x-5"
+                key={v}
+                onClick={() => {
+                  const newArr = new_testArray.slice();
+                  const newnew = [newArr[0], newArr[5], ...newArr.slice(1, 5)];
+                  setNew_TestArray(newnew);
+                }}
+                // onClick={() => {
+                //   const newArr = testArray.slice();
+                //   const newnew = [...newArr.slice(1, 5), newArr[0]];
+                //   setTestArray(newnew);
+                // }}
+              >
+                {v}
+              </li>
+            );
+          })}
+        </ul> */}
       </section>
       <MacModal />
     </>
