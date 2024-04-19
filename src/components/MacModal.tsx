@@ -58,13 +58,13 @@ export default function MacModal() {
       bg-white duration-500 ease-easeInOutQuart dark:bg-black`}
     >
       <div className="flex h-full w-full flex-col justify-between gap-3 px-10 pt-10">
-        <div className="relative h-full max-h-[600px] w-full">
-          <div className="flex h-full max-h-[600px] w-full flex-row gap-3 duration-300">
+        <div className="relative h-full w-full">
+          <div className="flex h-full w-full flex-row gap-3 duration-300">
             {movieArray.map(([mId, src], mIndex) => {
               return (
                 <div
                   key={mId}
-                  className={`absolute left-[50%] h-[600px] duration-300 ${
+                  className={`absolute left-[50%] h-full duration-300 ${
                     currentId == mId ? 'w-full' : 'w-0'
                   } ${
                     mIndex == currentMovieIndex
@@ -98,7 +98,7 @@ export default function MacModal() {
         </div>
 
         <div
-          className="h-[100px] w-full px-3"
+          className="h-[120px] w-full px-3"
           onClick={(e) => e.stopPropagation()}
         >
           <div className="flex h-full w-full flex-row items-center gap-x-3 overflow-scroll">
@@ -131,6 +131,7 @@ export default function MacModal() {
           </div>
         </div>
       </div>
+
       <button
         className="fixed right-10 top-5 z-50 h-8 w-8 origin-center text-lg
         font-bold
@@ -163,13 +164,6 @@ export default function MacModal() {
             prevMovieId ? prevMovieId : movieArray[movieArray.length - 1][0],
           );
         }}
-        onTouchStart={(e) => {
-          e.stopPropagation();
-          const prevMovieId = movieArray.slice()[currentMovieIndex - 1]?.[0];
-          setCurrentId(
-            prevMovieId ? prevMovieId : movieArray[movieArray.length - 1][0],
-          );
-        }}
       >
         {`<`}
       </button>
@@ -183,11 +177,6 @@ export default function MacModal() {
         hover:text-red-400 dark:text-white dark:hover:text-red-400
         `}
         onClick={(e) => {
-          e.stopPropagation();
-          const nextMovieId = movieArray.slice()[currentMovieIndex + 1]?.[0];
-          setCurrentId(nextMovieId ? nextMovieId : movieArray[0][0]);
-        }}
-        onTouchStart={(e) => {
           e.stopPropagation();
           const nextMovieId = movieArray.slice()[currentMovieIndex + 1]?.[0];
           setCurrentId(nextMovieId ? nextMovieId : movieArray[0][0]);
