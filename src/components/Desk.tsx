@@ -111,7 +111,7 @@ export default function Desk() {
             </div>
           </Link>
           <Link
-            href="/"
+            href="/music"
             className={`common-animation group relative h-full ${componentSizes.cds} z-10 cursor-pointer text-gray-600 dark:text-white`}
           >
             <AlbumsIcon />

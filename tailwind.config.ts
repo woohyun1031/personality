@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        phone: '170px',
+      },
       transitionTimingFunction: {
         easeInOutQuart: 'cubic-bezier(0.76, 0, 0.24, 1)',
       },
@@ -57,6 +60,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('tailwindcss-3d')],
 };
 export default config;

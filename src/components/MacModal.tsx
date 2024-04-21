@@ -39,9 +39,9 @@ export default function MacModal() {
                     mIndex == currentMovieIndex
                       ? 'opacity-1 translate-x-[-50%]'
                       : mIndex == currentMovieIndex - 1
-                      ? 'translate-x-[-1000px] opacity-0'
+                      ? 'opacity-0 translate-x-[-1000px]'
                       : mIndex == currentMovieIndex + 1
-                      ? 'translate-x-[1000px] opacity-0'
+                      ? 'opacity-0 translate-x-[1000px]'
                       : mIndex > currentMovieIndex
                       ? 'invisible translate-x-[5000px]'
                       : 'invisible translate-x-[-5000px]'
@@ -106,8 +106,8 @@ export default function MacModal() {
         font-bold
         text-gray-600
         duration-300
-        hover:rotate-45
         hover:text-red-400
+        hover:rotate-45
         dark:text-white
         dark:hover:text-red-400	
         "
@@ -124,7 +124,7 @@ export default function MacModal() {
         font-bold
         text-gray-600
         duration-300        
-        hover:-translate-x-2 hover:text-red-400 
+        hover:text-red-400 hover:-translate-x-2 
         dark:text-white dark:hover:text-red-400         
         `}
         onClick={(e) => {
@@ -143,8 +143,8 @@ export default function MacModal() {
         font-bold
         text-gray-600
         duration-300
-        hover:translate-x-2        
-        hover:text-red-400 dark:text-white dark:hover:text-red-400
+        hover:text-red-400        
+        hover:translate-x-2 dark:text-white dark:hover:text-red-400
         `}
         onClick={(e) => {
           e.stopPropagation();
