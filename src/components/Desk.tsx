@@ -14,11 +14,27 @@ import {
 import Image from 'next/image';
 import React from 'react';
 import Link from 'next/link';
-import { MacDispatch } from '@contexts/macContext';
+import { ModalDispatch } from '@contexts/modalContext';
 
 export default function Desk() {
+  const { openModal } = React.useContext(ModalDispatch);
   const isDesktop = useResize('(min-width: 768px)');
-  // const { macState, macDispatch } = React.useContext(MacDispatch);
+
+  function openNoAccessModal() {
+    return openModal(
+      <div className="flex h-full w-full items-center justify-center">
+        <div
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
+        >
+          <div className="mt-2 text-lg text-white dark:text-white">
+            This service is currently undergoing maintenance 😢
+          </div>
+        </div>
+      </div>,
+    );
+  }
 
   const componentSizes = React.useMemo(() => {
     return {
@@ -77,19 +93,16 @@ export default function Desk() {
             </div>
           </Link>
           <Link
-            href="/"
+            href="/movie"
             onClick={(e) => {
               e.preventDefault();
-              // macDispatch({ type: 'show' });
+              openNoAccessModal();
             }}
             className={`${componentSizes.mac} common-animation group relative z-[50] h-full cursor-pointer overflow-hidden text-gray-600 duration-300 dark:text-white`}
           >
             <div className="relative overflow-hidden">
               <MacIcon />
             </div>
-            {/* <div
-              className={`${componentSizes.screen} absolute z-40 scale-[4] bg-white dark:bg-gray-600 `}
-            /> */}
             <div
               className={`common-animation absolute 
             ${componentSizes.screen}
