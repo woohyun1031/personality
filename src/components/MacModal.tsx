@@ -4,28 +4,6 @@ import React from 'react';
 import { MacDispatch } from '@contexts/macContext';
 import { imagesMock } from '@constants/imagesMock';
 
-// function getNewArray(origin_array: any[], currentIndex: number) {
-//   const showCount = origin_array.length;
-//   const slicePoint = Math.floor(showCount / 2);
-//   const newArray = new Array(showCount).fill(0).map((_, i) => i);
-//   const new_array = origin_array.slice();
-
-//   let front = [];
-//   let back = [];
-
-//   for (let i = 0; i < newArray.length; i++) {
-//     const newIndex =
-//       currentIndex - i >= 0
-//         ? currentIndex - i
-//         : newArray.length + currentIndex - i;
-
-//     if (front.length >= slicePoint) {
-//       back.push(new_array[newIndex]);
-//     } else front.push(new_array[newIndex]);
-//   }
-//   return [...front.reverse(), ...back.reverse()];
-// }
-
 export default function MacModal() {
   const { macState, macDispatch } = React.useContext(MacDispatch);
   const [currentId, setCurrentId] = React.useState<string>('1');
@@ -38,15 +16,6 @@ export default function MacModal() {
     () => movieArray.findIndex(([id]) => id == currentId),
     [movieArray, currentId],
   );
-
-  // const new_movieArray = React.useMemo(
-  //   () => getNewArray(movieArray, currentMovieIndex) as string[][],
-  //   [movieArray, currentMovieIndex],
-  // );
-  // const new_currentMovieIndex = React.useMemo(
-  //   () => new_movieArray.findIndex(([id]) => id == currentId),
-  //   [new_movieArray, currentId],
-  // );
 
   return (
     <div
@@ -70,9 +39,9 @@ export default function MacModal() {
                     mIndex == currentMovieIndex
                       ? 'opacity-1 translate-x-[-50%]'
                       : mIndex == currentMovieIndex - 1
-                      ? 'translate-x-[-1000px] opacity-0'
+                      ? 'opacity-0 translate-x-[-1000px]'
                       : mIndex == currentMovieIndex + 1
-                      ? 'translate-x-[1000px] opacity-0'
+                      ? 'opacity-0 translate-x-[1000px]'
                       : mIndex > currentMovieIndex
                       ? 'invisible translate-x-[5000px]'
                       : 'invisible translate-x-[-5000px]'
@@ -106,11 +75,11 @@ export default function MacModal() {
               return (
                 <div
                   key={mId}
-                  className={`relative h-[50px] w-[50px] flex-shrink-0 flex-grow-0 
+                  className={`relative h-[40px] w-[40px] flex-shrink-0 flex-grow-0 
                   cursor-pointer overflow-hidden rounded-2xl border-b-4  border-gray-700 duration-300 ease-in-out                  
                   dark:border-gray-300
-                  sm:h-[60px]
-                  sm:w-[60px]
+                  sm:h-[50px]
+                  sm:w-[50px]
                   ${
                     mId == currentId ? '-translate-y-4' : 'hover:-translate-y-2'
                   }
@@ -137,8 +106,8 @@ export default function MacModal() {
         font-bold
         text-gray-600
         duration-300
-        hover:rotate-45
         hover:text-red-400
+        hover:rotate-45
         dark:text-white
         dark:hover:text-red-400	
         "
@@ -150,12 +119,13 @@ export default function MacModal() {
       </button>
 
       <button
-        className={`'hover:-translate-x-2 dark:hover:text-red-400' fixed left-10 top-[50%] z-50 h-8 w-8
-        origin-center
+        className={`fixed left-10 top-[50%] z-50 h-8 w-8 origin-center
         text-lg
         font-bold
-        text-gray-600        
-        duration-300 hover:text-red-400 dark:text-white        
+        text-gray-600
+        duration-300        
+        hover:text-red-400 hover:-translate-x-2 
+        dark:text-white dark:hover:text-red-400         
         `}
         onClick={(e) => {
           e.stopPropagation();
@@ -173,8 +143,8 @@ export default function MacModal() {
         font-bold
         text-gray-600
         duration-300
-        hover:translate-x-2        
-        hover:text-red-400 dark:text-white dark:hover:text-red-400
+        hover:text-red-400        
+        hover:translate-x-2 dark:text-white dark:hover:text-red-400
         `}
         onClick={(e) => {
           e.stopPropagation();
