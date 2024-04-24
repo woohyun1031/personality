@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       screens: {
-        phone: '170px',
+        phone: '150px',
       },
       transitionTimingFunction: {
         easeInOutQuart: 'cubic-bezier(0.76, 0, 0.24, 1)',
@@ -27,6 +27,7 @@ const config: Config = {
         not_purse_animation: 'not_purse .5s ease-in-out forwards',
         scale_up_animation: 'scale_up .5s ease-in-out forwards',
         easeOutBounce_animation: 'start_easeOutBounce .6s forwards',
+        cd_spin_animation: 'spin 20s linear infinite;',
       },
       keyframes: {
         sway: {
@@ -56,6 +57,10 @@ const config: Config = {
         scale_up: {
           '0%': { transform: 'scale(0)' },
           '100%': { transform: 'scale(5) translateX(30%) translateY(-10%)' },
+        },
+        cd_spin: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
         },
       },
     },

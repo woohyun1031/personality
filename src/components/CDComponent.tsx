@@ -5,11 +5,12 @@ import React from 'react';
 export default function CDComponent({ src }: { src: string }) {
   return (
     <div
-      className="relative 
-      h-[130px] w-[130px] 
-      opacity-5 duration-300 
-      group-hover:opacity-[1] phone:h-[200px] 
-      phone:w-[200px] sm:h-[340px] sm:w-[340px] lg:h-[430px] lg:w-[430px]"
+      className="relative       
+      h-full w-full       
+      opacity-5	
+      group-hover:animate-cd_spin_animation
+      group-hover:opacity-[1]       
+      "
     >
       <img
         src={src}
