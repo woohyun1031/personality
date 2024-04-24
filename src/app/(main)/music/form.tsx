@@ -3,7 +3,6 @@
 import React from 'react';
 import { musicsMock } from '@constants/imagesMock';
 import CDComponent from '@components/CDComponent';
-import { useResize } from '@hooks/useResize';
 
 export default function Form() {
   const [currentId, setCurrentId] = React.useState<string>('1');

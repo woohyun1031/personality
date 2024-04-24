@@ -1,20 +1,29 @@
 'use client';
 
-import { imagesMock } from '@constants/imagesMock';
 import React from 'react';
+import { imagesMock } from '@constants/imagesMock';
 
-export default function GridImageForm({ id }: { id: string }) {
+export default function GridImageForm({
+  id,
+  isDesktop,
+}: {
+  id: string;
+  isDesktop: boolean;
+}) {
   const ref = React.useRef<any>();
   const [gridRowEnd, setGridRowEnd] = React.useState<number>();
   const [loading, setLoading] = React.useState<boolean>(true);
+
+  const isDeskTopSize = React.useMemo(() => isDesktop, [isDesktop]);
 
   function handleLoad() {
     setLoading(false);
     setGridRowEnd(+ref.current.clientHeight + 32);
   }
+
   React.useEffect(() => {
     if (ref.current.complete) handleLoad();
-  }, []);
+  }, [isDeskTopSize]);
 
   return (
     <div
@@ -23,7 +32,7 @@ export default function GridImageForm({ id }: { id: string }) {
       }}
       className={`h-full w-full cursor-pointer duration-500 ${
         loading
-          ? 'invisible scale-[0.7] opacity-0'
+          ? 'invisible opacity-0 scale-[0.7]'
           : 'opacity-1 visible scale-[1]'
       }`}
     >
