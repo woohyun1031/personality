@@ -18,7 +18,7 @@ import { MacDispatch } from '@contexts/macContext';
 
 export default function Desk() {
   const isDesktop = useResize('(min-width: 768px)');
-  const { macState, macDispatch } = React.useContext(MacDispatch);
+  // const { macState, macDispatch } = React.useContext(MacDispatch);
 
   const componentSizes = React.useMemo(() => {
     return {
@@ -80,13 +80,9 @@ export default function Desk() {
             href="/"
             onClick={(e) => {
               e.preventDefault();
-              macDispatch({ type: 'show' });
+              // macDispatch({ type: 'show' });
             }}
-            className={`${
-              macState.isShow ? 'fixed left-0 top-0' : 'group relative'
-            } ${
-              componentSizes.mac
-            } common-animation group relative z-[50] h-full cursor-pointer overflow-hidden text-gray-600 duration-300 dark:text-white`}
+            className={`${componentSizes.mac} common-animation group relative z-[50] h-full cursor-pointer overflow-hidden text-gray-600 duration-300 dark:text-white`}
           >
             <div className="relative overflow-hidden">
               <MacIcon />
