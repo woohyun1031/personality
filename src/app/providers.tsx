@@ -12,7 +12,7 @@ import {
   modalReducer,
 } from '@contexts/modalContext';
 import Header from '@components/Header';
-import ContactModal from '@components/ContactModal';
+import CustomModal from '@/components/CustomModal';
 import { MacDispatch, macReducer } from '@contexts/macContext';
 
 export function Providers({
@@ -28,6 +28,10 @@ export function Providers({
   const [modalState, modalDispatch] = React.useReducer(
     modalReducer,
     initialModalState,
+  );
+
+  const [modalContent, setModalContent] = React.useState(
+    (<></>) as React.JSX.Element,
   );
 
   const [macState, macDispatch] = React.useReducer(
@@ -49,14 +53,24 @@ export function Providers({
     }
   }, []);
 
+  function openModal(value: React.JSX.Element) {
+    modalDispatch({ type: 'show' });
+    setModalContent(value);
+  }
+
+  function closeModal() {
+    modalDispatch({ type: 'close' });
+    setModalContent(<></>);
+  }
+
   const darkModeContextMemo = React.useMemo(
     () => ({ darkModeState, darkModeDispatch }),
     [darkModeState, darkModeDispatch],
   );
 
   const modalContextMemo = React.useMemo(
-    () => ({ modalState, modalDispatch }),
-    [modalState, modalDispatch],
+    () => ({ modalState, modalDispatch, openModal, closeModal }),
+    [modalState, modalDispatch, openModal, closeModal],
   );
 
   const macContextMemo = React.useMemo(
@@ -71,7 +85,7 @@ export function Providers({
           <Header />
           {children}
         </MacDispatch.Provider>
-        <ContactModal />
+        <CustomModal content={modalContent} />
       </ModalDispatch.Provider>
     </DarkModeDispatch.Provider>
   );

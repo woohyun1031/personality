@@ -11,6 +11,8 @@ interface TActions {
 interface IModalContext {
   modalState: TModalState;
   modalDispatch: React.Dispatch<TActions>;
+  openModal: (value: React.JSX.Element) => void;
+  closeModal: () => void;
 }
 
 export const initialModalState = {
@@ -28,6 +30,7 @@ export const modalReducer = (state: TModalState, action: TActions) => {
       return {
         ...state,
         isShow: false,
+        content: null,
       };
     default:
       return state;
@@ -37,4 +40,6 @@ export const modalReducer = (state: TModalState, action: TActions) => {
 export const ModalDispatch = React.createContext<IModalContext>({
   modalState: initialModalState,
   modalDispatch: () => {},
+  openModal: () => {},
+  closeModal: () => {},
 });

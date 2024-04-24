@@ -7,11 +7,13 @@ import SunIcon from '@components/icons/SunIcon';
 import MoonIcon from '@components/icons/MoonIcon';
 import { ModalDispatch } from '@contexts/modalContext';
 import { usePathname } from 'next/navigation';
+import LinkButton from './LinkButton';
+import URL from '@/constants/url';
 
 export default function Header() {
   const { darkModeState, darkModeDispatch } =
     React.useContext(DarkModeDispatch);
-  const { modalDispatch } = React.useContext(ModalDispatch);
+  const { openModal } = React.useContext(ModalDispatch);
   const { isDark } = darkModeState;
   const pathname = usePathname();
   const currentPath = pathname.replace('/', '');
@@ -31,8 +33,58 @@ export default function Header() {
     }
   }, []);
 
-  function openModal() {
-    modalDispatch({ type: 'show' });
+  function openContactModal() {
+    return openModal(
+      <div className="flex h-full w-full items-center justify-center">
+        <div
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
+        >
+          <div className="mt-2 text-lg text-white dark:text-white">
+            Hello, I'm Woohyun Kim 👋
+          </div>
+          <div className="mt-2 text-sm text-white dark:text-white">
+            I specialize in building features to solve user problems and
+            enhancing them technically.
+          </div>
+          <div className="mt-2 text-sm text-white dark:text-white">
+            My primary tools are TypeScript, React.js, and Next.js, but I also
+            enjoy working with Vanilla.js on personal projects.
+          </div>
+          <div className="mt-2 text-sm text-white dark:text-white">
+            Lately, I've been immersing myself in both work and hobbies related
+            to development.
+          </div>
+          <div className="mt-2 text-sm text-white dark:text-white">
+            I consistently record these experiences and interesting problems in
+            <LinkButton url={URL.notion} className="ml-2 mr-1">
+              +
+            </LinkButton>
+            Notion.
+          </div>
+          <div className="mt-2 text-sm text-white dark:text-white">
+            Occasionally, I integrate these notes with my
+            <LinkButton url={URL.blog} className="ml-2 mr-1">
+              +
+            </LinkButton>
+            blog posts, addressing issues I encounter directly.
+          </div>
+
+          <div className="mt-12 text-sm">
+            <LinkButton url={URL.mail} className="ml-2 mr-1 text-sm">
+              email
+            </LinkButton>
+            <LinkButton url={URL.github} className="ml-2 mr-1 text-sm">
+              github
+            </LinkButton>
+            <LinkButton url={URL.blog} className="ml-2 mr-1 text-sm">
+              blog
+            </LinkButton>
+          </div>
+        </div>
+      </div>,
+    );
   }
 
   return (
@@ -61,7 +113,7 @@ export default function Header() {
               text-sm font-normal text-gray-600 
               duration-300 hover:text-red-400 active:text-red-600 dark:text-white dark:hover:text-red-400
             dark:active:text-red-600"
-            onClick={() => openModal()}
+            onClick={() => openContactModal()}
           >
             contact
           </button>
