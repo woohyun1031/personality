@@ -6,13 +6,15 @@ import { DarkModeDispatch } from '@contexts/darkModeContext';
 import SunIcon from '@components/icons/SunIcon';
 import MoonIcon from '@components/icons/MoonIcon';
 import { ModalDispatch } from '@contexts/modalContext';
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
   const { darkModeState, darkModeDispatch } =
     React.useContext(DarkModeDispatch);
   const { modalDispatch } = React.useContext(ModalDispatch);
-
   const { isDark } = darkModeState;
+  const pathname = usePathname();
+  const currentPath = pathname.replace('/', '');
 
   const changeTheme = React.useCallback(() => {
     const localTheme = localStorage.getItem('theme');
@@ -49,14 +51,16 @@ export default function Header() {
         >
           my personality
         </Link>
+        <span className="text-sm font-normal text-gray-600 dark:text-white">
+          {currentPath}
+        </span>
         <div className="flex items-center gap-4">
           <button
             type="button"
             className="
               text-sm font-normal text-gray-600 
-            duration-300 hover:text-red-400 active:text-red-600 dark:text-white dark:hover:text-red-400
-            dark:active:text-red-600
-            "
+              duration-300 hover:text-red-400 active:text-red-600 dark:text-white dark:hover:text-red-400
+            dark:active:text-red-600"
             onClick={() => openModal()}
           >
             contact

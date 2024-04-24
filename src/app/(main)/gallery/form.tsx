@@ -95,16 +95,18 @@ export default function Form() {
         <></>
       )}
       <button
-        className="w-100 h-100 fixed bottom-10 right-10 z-50 rounded border-b-4 
-        border-blue-700 bg-blue-500 px-4 py-2 font-bold text-white 
-        hover:border-blue-500 hover:bg-blue-400"
+        className="w-100 h-100 fixed bottom-10 right-10 z-50 
+        rounded px-4 py-2 text-sm text-gray-600 duration-300 
+        hover:text-red-500 
+        dark:text-white dark:hover:text-red-500 
+        "
         onClick={() => router.refresh()}
         onTouchStart={(e) => {
           e.preventDefault();
           router.refresh();
         }}
       >
-        reflow 🚀
+        reflow
       </button>
     </div>
   );
