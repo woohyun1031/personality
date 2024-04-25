@@ -10,13 +10,6 @@ export default function Form() {
   const startRef = React.useRef<HTMLDivElement>(null);
   const endRef = React.useRef<HTMLDivElement>(null);
 
-  React.useEffect(() => {
-    document.body.style.overflowY = 'hidden';
-    return () => {
-      document.body.style.overflowY = 'auto';
-    };
-  }, []);
-
   function setTouchStart(e: React.TouchEvent<HTMLDivElement>) {
     e.preventDefault();
     const mouseMoveHandler = (event: TouchEvent) => {
@@ -59,6 +52,13 @@ export default function Form() {
     document.addEventListener('mouseup', mouseUpHandler, { once: true });
   }
 
+  React.useEffect(() => {
+    document.body.style.overflowY = 'hidden';
+    return () => {
+      document.body.style.overflowY = 'auto';
+    };
+  }, []);
+
   return (
     <div
       className={`relative h-full cursor-grab justify-center overflow-hidden p-[64px]`}
@@ -72,7 +72,7 @@ export default function Form() {
           const minY = 400 * (step - 1);
           const clientWidth = document.body.clientWidth;
           const x = Math.floor(
-            Math.random() * (clientWidth - (208 + 128)) + 64,
+            Math.random() * (clientWidth - (170 + 128)) + 64,
           );
           const y = Math.floor(Math.random() * (maxY - minY) + minY);
           return (

@@ -9,8 +9,6 @@ export default function Form() {
   const isDesktop = useResize('(min-height: 768px)');
   const isMobile = useResize('(max-height: 600px)');
   const fontSize = isDesktop ? 'text-base' : 'text-xs';
-  const [testArray, setTestArray] = React.useState([1, 2, 3, 4, 5]);
-  const [new_testArray, setNew_TestArray] = React.useState([98, 1, 2, 3, 4, 5]);
 
   return (
     <>
