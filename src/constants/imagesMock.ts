@@ -1,3 +1,59 @@
+export const galleryMock: Record<
+  string,
+  { src: string; title: string; date: string }
+> = {
+  image_1: {
+    src: 'https://personality-images.s3.ap-northeast-2.amazonaws.com/images/KakaoTalk_Photo_2024-04-25-18-09-05+001.jpeg',
+    title: '',
+    date: '2023-12-31',
+  },
+  image_2: {
+    src: 'https://personality-images.s3.ap-northeast-2.amazonaws.com/images/KakaoTalk_Photo_2024-04-25-18-09-05+002.jpeg',
+    title: '',
+    date: '2023-12-31',
+  },
+  image_3: {
+    src: 'https://personality-images.s3.ap-northeast-2.amazonaws.com/images/KakaoTalk_Photo_2024-04-25-18-09-05+004.jpeg',
+    title: '',
+    date: '2023-12-31',
+  },
+  image_4: {
+    src: 'https://personality-images.s3.ap-northeast-2.amazonaws.com/images/KakaoTalk_Photo_2024-04-25-18-09-05+005.jpeg',
+    title: '',
+    date: '2023-12-31',
+  },
+  image_5: {
+    src: 'https://personality-images.s3.ap-northeast-2.amazonaws.com/images/KakaoTalk_Photo_2024-04-25-18-09-05+006.jpeg',
+    title: '',
+    date: '2023-12-31',
+  },
+  image_6: {
+    src: 'https://personality-images.s3.ap-northeast-2.amazonaws.com/images/KakaoTalk_Photo_2024-04-25-18-09-05+007.jpeg',
+    title: '',
+    date: '2023-12-31',
+  },
+  image_7: {
+    src: 'https://personality-images.s3.ap-northeast-2.amazonaws.com/images/KakaoTalk_Photo_2024-04-25-18-09-05+008.jpeg',
+    title: '',
+    date: '2023-12-31',
+  },
+  image_8: {
+    src: 'https://personality-images.s3.ap-northeast-2.amazonaws.com/images/KakaoTalk_Photo_2024-04-25-18-09-05+009.jpeg',
+    title: '',
+    date: '2023-12-31',
+  },
+  image_9: {
+    src: 'https://personality-images.s3.ap-northeast-2.amazonaws.com/images/KakaoTalk_Photo_2024-04-25-18-09-05+010.jpeg',
+    title: '',
+    date: '2023-12-31',
+  },
+  image_10: {
+    src: 'https://personality-images.s3.ap-northeast-2.amazonaws.com/images/KakaoTalk_Photo_2024-04-25-18-09-05+011.jpeg',
+    title: '',
+    date: '2023-12-31',
+  },
+};
+
 export const imagesMock: Record<string, string> = {
   1: 'https://images.unsplash.com/photo-1661933021480-75b708d5648f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60',
   2: 'https://images.unsplash.com/photo-1661912267451-712c028d74a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60',

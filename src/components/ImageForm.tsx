@@ -1,6 +1,6 @@
 'use client';
 
-import { imagesMock } from '@constants/imagesMock';
+import { galleryMock } from '@constants/imagesMock';
 import React from 'react';
 
 const levels = {
@@ -84,7 +84,7 @@ const ImageForm = React.forwardRef(
         } w-[208px] cursor-pointer shadow-custom duration-500
       ${
         loading
-          ? 'invisible scale-[0.7] opacity-0'
+          ? 'invisible opacity-0 scale-[0.7]'
           : 'opacity-1 visible scale-[1]'
       }`}
       >
@@ -94,7 +94,7 @@ const ImageForm = React.forwardRef(
         >
           <img
             ref={imageRef}
-            src={imagesMock[id]}
+            src={galleryMock[id].src}
             alt="img"
             className={`w-full rounded-sm border-8 border-gray-200 
             object-contain duration-300 

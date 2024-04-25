@@ -1,7 +1,7 @@
 'use client';
 
 import ImageForm from '@components/ImageForm';
-import { imagesMock } from '@constants/imagesMock';
+import { galleryMock } from '@constants/imagesMock';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 
@@ -66,7 +66,7 @@ export default function Form() {
       onMouseDown={setMouseDown}
     >
       {typeof document !== 'undefined' ? (
-        Object.entries(imagesMock).map(([key], idx, array) => {
+        Object.entries(galleryMock).map(([key], idx, array) => {
           const step = Math.ceil((idx + 1) / 3);
           const maxY = 400 * step;
           const minY = 400 * (step - 1);
