@@ -78,89 +78,40 @@ export const imagesMock: Record<string, string> = {
   21: 'https://images.unsplash.com/photo-1661890090656-6bf16bbdee4c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=874&q=80',
 };
 
-export const musicsMock: Record<string, { src: string; title: string }> = {
+export const musicsMock: Record<string, Record<string, string>> = {
   1: {
-    src: 'https://marketplace.canva.com/EAExV0mbYPo/1/0/1600w/canva-%EC%B2%AD%EB%A1%9D%EC%83%89-%EB%B0%A4%ED%95%98%EB%8A%98-%EC%88%B2-%ED%92%8D%EA%B2%BD%EC%9D%98-%EC%95%A8%EB%B2%94%EC%BB%A4%EB%B2%84-Dt8PoMSDErw.jpg',
-    title: 'title1',
+    imageUrl:
+      'https://cdnimg.melon.co.kr/cm2/album/images/109/18/870/10918870_20220623153906_1000.jpg?41b3ed6422c68b7d13cc50ef499b1282/melon/quality/80/optimize',
+    title: 'Memories',
+    singer: 'Conan Gray',
+    date: '2022.06.24',
+    description:
+      "I wish that you would stay in my memories But you show up today, just to ruin things I wanna put you in the past cause I'm traumatized",
   },
   2: {
-    src: 'https://marketplace.canva.com/EAD2lQwHOFo/1/0/1600w/canva-%EC%9E%A5%EB%AF%B8-%EB%8B%A8%EC%88%9C%ED%95%9C-%EC%95%A8%EB%B2%94-%EC%BB%A4%EB%B2%84-jj7rXxSXTu8.jpg',
-    title: 'title2',
+    imageUrl:
+      'https://cdnimg.melon.co.kr/cm2/album/images/104/28/497/10428497_20200511134253_1000.jpg?19660516aa86598ffe431579a1695f9c/melon/quality/80/optimize',
+    title: 'Love me or Leave me',
+    singer: 'DAY6 (데이식스)',
+    date: '2020.05.11',
+    description:
+      '숨을 죽이고 너의 대답을 기다릴게 턴을 너에게 넘긴 채로 만약 아니라 하더라도 말해 줘 Baby, love me or leave me tonight',
   },
   3: {
-    src: 'https://marketplace.canva.com/EAExV2m91mg/1/0/1600w/canva-%ED%8C%8C%EB%9E%80%EC%83%89-%EB%B0%A4%ED%95%98%EB%8A%98-%EA%B7%B8%EB%A6%BC%EC%9D%98-%EC%95%A8%EB%B2%94%EC%BB%A4%EB%B2%84-5tlu9r69vlc.jpg',
-    title: 'title3',
+    imageUrl:
+      'https://cdnimg.melon.co.kr/cm2/album/images/114/15/955/11415955_20240213114044_1000.jpg?785a3471d76564f8d893eae8707ca36a/melon/quality/80/optimize',
+    title: 'Die For You',
+    singer: 'The Weeknd',
+    date: '2021.02.05',
+    description: 'Just know that I would die for you',
   },
   4: {
-    src: 'https://marketplace.canva.com/EAD2lfpCsag/1/0/100w/canva-%EB%B3%B4%ED%86%B5%EC%9D%98-%EC%88%98%EC%B1%84%ED%99%94-cd-%EC%BB%A4%EB%B2%84-AhKMM9e4XW0.jpg',
-    title: 'title4',
-  },
-  5: {
-    src: 'https://marketplace.canva.com/EAD2lefbZEs/1/0/100w/canva-%EB%88%88%EC%B2%98%EB%9F%BC-%ED%9D%B0-cd-%EC%BB%A4%EB%B2%84-ww5r_3H0fmw.jpg',
-    title: 'title5',
-  },
-  6: {
-    src: 'https://marketplace.canva.com/EAExV8aJ3E0/1/0/100w/canva-%EA%B2%80%EC%9D%80%EC%83%89-%EC%8A%A4%ED%94%BC%EC%BB%A4%EC%82%AC%EC%A7%84-%ED%9E%99%ED%95%A9-%ED%9E%88%ED%8A%B8%EA%B3%A1-%EC%95%A8%EB%B2%94-CGNbppPxsZY.jpg',
-    title: 'title6',
-  },
-  7: {
-    src: 'https://marketplace.canva.com/EAD2laVrnyI/1/0/100w/canva-%EC%BB%A4%EB%B2%84-Cqy0E6COfpw.jpg',
-    title: 'title7',
-  },
-  8: {
-    src: 'https://marketplace.canva.com/EAD2lZcww5Y/1/0/100w/canva-%EC%9D%BC%EB%AA%B0-%EC%82%AC%EC%A7%84-%EC%95%A8%EB%B2%94-%EC%BB%A4%EB%B2%84-SOqBbxAujN0.jpg',
-    title: 'title8',
-  },
-  9: {
-    src: 'https://marketplace.canva.com/EAD2lSPwbcY/1/0/100w/canva-%EB%AA%A8%EB%8D%98-%ED%9D%91%EB%B0%B1-%EC%95%A8%EB%B2%94-%EC%BB%A4%EB%B2%84-j30qij2nvWQ.jpg',
-    title: 'title9',
-  },
-  10: {
-    src: 'https://marketplace.canva.com/EAExV0mbYPo/1/0/1600w/canva-%EC%B2%AD%EB%A1%9D%EC%83%89-%EB%B0%A4%ED%95%98%EB%8A%98-%EC%88%B2-%ED%92%8D%EA%B2%BD%EC%9D%98-%EC%95%A8%EB%B2%94%EC%BB%A4%EB%B2%84-Dt8PoMSDErw.jpg',
-    title: 'title10',
-  },
-  11: {
-    src: 'https://marketplace.canva.com/EAD2lQwHOFo/1/0/1600w/canva-%EC%9E%A5%EB%AF%B8-%EB%8B%A8%EC%88%9C%ED%95%9C-%EC%95%A8%EB%B2%94-%EC%BB%A4%EB%B2%84-jj7rXxSXTu8.jpg',
-    title: 'title11',
-  },
-  12: {
-    src: 'https://marketplace.canva.com/EAExV2m91mg/1/0/1600w/canva-%ED%8C%8C%EB%9E%80%EC%83%89-%EB%B0%A4%ED%95%98%EB%8A%98-%EA%B7%B8%EB%A6%BC%EC%9D%98-%EC%95%A8%EB%B2%94%EC%BB%A4%EB%B2%84-5tlu9r69vlc.jpg',
-    title: 'title12',
-  },
-  13: {
-    src: 'https://marketplace.canva.com/EAD2lfpCsag/1/0/100w/canva-%EB%B3%B4%ED%86%B5%EC%9D%98-%EC%88%98%EC%B1%84%ED%99%94-cd-%EC%BB%A4%EB%B2%84-AhKMM9e4XW0.jpg',
-    title: 'title13',
-  },
-  14: {
-    src: 'https://marketplace.canva.com/EAD2lefbZEs/1/0/100w/canva-%EB%88%88%EC%B2%98%EB%9F%BC-%ED%9D%B0-cd-%EC%BB%A4%EB%B2%84-ww5r_3H0fmw.jpg',
-    title: 'title14',
-  },
-  15: {
-    src: 'https://marketplace.canva.com/EAExV8aJ3E0/1/0/100w/canva-%EA%B2%80%EC%9D%80%EC%83%89-%EC%8A%A4%ED%94%BC%EC%BB%A4%EC%82%AC%EC%A7%84-%ED%9E%99%ED%95%A9-%ED%9E%88%ED%8A%B8%EA%B3%A1-%EC%95%A8%EB%B2%94-CGNbppPxsZY.jpg',
-    title: 'title15',
-  },
-  16: {
-    src: 'https://marketplace.canva.com/EAD2laVrnyI/1/0/100w/canva-%EC%BB%A4%EB%B2%84-Cqy0E6COfpw.jpg',
-    title: 'title16',
-  },
-  17: {
-    src: 'https://marketplace.canva.com/EAD2lZcww5Y/1/0/100w/canva-%EC%9D%BC%EB%AA%B0-%EC%82%AC%EC%A7%84-%EC%95%A8%EB%B2%94-%EC%BB%A4%EB%B2%84-SOqBbxAujN0.jpg',
-    title: 'title17',
-  },
-  18: {
-    src: 'https://marketplace.canva.com/EAD2lSPwbcY/1/0/100w/canva-%EB%AA%A8%EB%8D%98-%ED%9D%91%EB%B0%B1-%EC%95%A8%EB%B2%94-%EC%BB%A4%EB%B2%84-j30qij2nvWQ.jpg',
-    title: 'title18',
-  },
-  19: {
-    src: 'https://marketplace.canva.com/EAExV0mbYPo/1/0/1600w/canva-%EC%B2%AD%EB%A1%9D%EC%83%89-%EB%B0%A4%ED%95%98%EB%8A%98-%EC%88%B2-%ED%92%8D%EA%B2%BD%EC%9D%98-%EC%95%A8%EB%B2%94%EC%BB%A4%EB%B2%84-Dt8PoMSDErw.jpg',
-    title: 'title19',
-  },
-  20: {
-    src: 'https://marketplace.canva.com/EAD2lQwHOFo/1/0/1600w/canva-%EC%9E%A5%EB%AF%B8-%EB%8B%A8%EC%88%9C%ED%95%9C-%EC%95%A8%EB%B2%94-%EC%BB%A4%EB%B2%84-jj7rXxSXTu8.jpg',
-    title: 'title20',
-  },
-  21: {
-    src: 'https://marketplace.canva.com/EAExV2m91mg/1/0/1600w/canva-%ED%8C%8C%EB%9E%80%EC%83%89-%EB%B0%A4%ED%95%98%EB%8A%98-%EA%B7%B8%EB%A6%BC%EC%9D%98-%EC%95%A8%EB%B2%94%EC%BB%A4%EB%B2%84-5tlu9r69vlc.jpg',
-    title: 'title21',
+    imageUrl:
+      'https://cdnimg.melon.co.kr/cm/album/images/007/60/554/760554_1000.jpg/melon/quality/80/optimize',
+    title: 'Last Night On Earth',
+    singer: 'Green Day',
+    date: '2009.05.15',
+    description:
+      "If I lose everything in the fire I'm sendin' all my love to you",
   },
 };
