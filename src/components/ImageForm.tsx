@@ -43,6 +43,7 @@ const ImageForm = React.forwardRef(
     },
     ref?: React.ForwardedRef<HTMLDivElement>,
   ) => {
+    console.log(width);
     const level = getLevel(id, index) as 1 | 2 | 3;
     const positionRef = React.useRef<HTMLDivElement>(null);
     const imageRef = React.useRef<HTMLImageElement>(null);
@@ -103,10 +104,11 @@ const ImageForm = React.forwardRef(
         style={{
           left: initPosition.x,
           top: initPosition.y,
+          width: `${width}px`,
         }}
         className={`absolute z-${
           levels[level].zindex
-        } w-[${width}px] cursor-pointer shadow-custom duration-500
+        } cursor-pointer shadow-custom duration-500
       ${
         loading
           ? 'invisible opacity-0 scale-[0.7]'
