@@ -1,5 +1,6 @@
 'use client';
 
+import { ModalDispatch } from '@/contexts/modalContext';
 import { galleryMock } from '@constants/imagesMock';
 import React from 'react';
 
@@ -46,6 +47,8 @@ const ImageForm = React.forwardRef(
     const positionRef = React.useRef<HTMLDivElement>(null);
     const imageRef = React.useRef<HTMLImageElement>(null);
     const [loading, setLoading] = React.useState<boolean>(true);
+    const [isTouchMove, setIsTouchMove] = React.useState<boolean>(false);
+    const { openModal } = React.useContext(ModalDispatch);
 
     function handleLoad() {
       setLoading(false);
@@ -64,6 +67,26 @@ const ImageForm = React.forwardRef(
         requestAnimationFrame(() => scrollAnimate(setY));
       }
     };
+
+    function openDetailModal() {
+      openModal(
+        <div className="h-full w-full">
+          <img
+            ref={imageRef}
+            src={galleryMock[id].src}
+            alt="img"
+            className={`h-full w-full rounded-sm
+            object-contain duration-300             
+          `}
+          />
+          <div className="mt-3 flex justify-center">
+            <span className="ml-4 text-xs text-white">
+              {galleryMock[id].title} - {galleryMock[id].date}
+            </span>
+          </div>
+        </div>,
+      );
+    }
 
     React.useEffect(() => {
       if (imageRef.current && imageRef.current.complete) handleLoad();
@@ -89,6 +112,14 @@ const ImageForm = React.forwardRef(
           ? 'invisible opacity-0 scale-[0.7]'
           : 'opacity-1 visible scale-[1]'
       }`}
+        onClick={() => openDetailModal()}
+        onTouchMove={() => setIsTouchMove(true)}
+        onTouchEnd={() => {
+          if (!isTouchMove) {
+            openDetailModal();
+          }
+          setIsTouchMove(false);
+        }}
       >
         <div
           {...(ref ? { ref: ref } : {})}
@@ -113,7 +144,7 @@ const ImageForm = React.forwardRef(
           [&:not(:hover)]:invisible [&:not(:hover)]:opacity-0
           "
           >
-            <span className="ml-4 text-xs text-gray-900 dark:text-white">
+            <span className="ml-4 text-xs text-white">
               {galleryMock[id].title}
             </span>
           </div>
