@@ -4,52 +4,52 @@ export const galleryMock: Record<
 > = {
   image_1: {
     src: 'https://personality-images.s3.ap-northeast-2.amazonaws.com/images/KakaoTalk_Photo_2024-04-25-18-09-05+001.jpeg',
-    title: '',
-    date: '2023-12-31',
+    title: 'good evening sanglim forest',
+    date: '2023-01-02',
   },
   image_2: {
     src: 'https://personality-images.s3.ap-northeast-2.amazonaws.com/images/KakaoTalk_Photo_2024-04-25-18-09-05+002.jpeg',
-    title: '',
-    date: '2023-12-31',
+    title: 'jongro road',
+    date: '2023-10-31',
   },
   image_3: {
     src: 'https://personality-images.s3.ap-northeast-2.amazonaws.com/images/KakaoTalk_Photo_2024-04-25-18-09-05+004.jpeg',
-    title: '',
-    date: '2023-12-31',
+    title: 'back hill',
+    date: '2023-12-12',
   },
   image_4: {
     src: 'https://personality-images.s3.ap-northeast-2.amazonaws.com/images/KakaoTalk_Photo_2024-04-25-18-09-05+005.jpeg',
-    title: '',
-    date: '2023-12-31',
+    title: 'bell of the citizens',
+    date: '2023-05-04',
   },
   image_5: {
     src: 'https://personality-images.s3.ap-northeast-2.amazonaws.com/images/KakaoTalk_Photo_2024-04-25-18-09-05+006.jpeg',
-    title: '',
+    title: 'good morning sanglim forest',
     date: '2023-12-31',
   },
   image_6: {
     src: 'https://personality-images.s3.ap-northeast-2.amazonaws.com/images/KakaoTalk_Photo_2024-04-25-18-09-05+007.jpeg',
-    title: '',
+    title: 'at cafe',
     date: '2023-12-31',
   },
   image_7: {
     src: 'https://personality-images.s3.ap-northeast-2.amazonaws.com/images/KakaoTalk_Photo_2024-04-25-18-09-05+008.jpeg',
-    title: '',
+    title: 'sunset',
     date: '2023-12-31',
   },
   image_8: {
     src: 'https://personality-images.s3.ap-northeast-2.amazonaws.com/images/KakaoTalk_Photo_2024-04-25-18-09-05+009.jpeg',
-    title: '',
+    title: '"Songdo"',
     date: '2023-12-31',
   },
   image_9: {
     src: 'https://personality-images.s3.ap-northeast-2.amazonaws.com/images/KakaoTalk_Photo_2024-04-25-18-09-05+010.jpeg',
-    title: '',
+    title: 'Mapo Bridge',
     date: '2023-12-31',
   },
   image_10: {
     src: 'https://personality-images.s3.ap-northeast-2.amazonaws.com/images/KakaoTalk_Photo_2024-04-25-18-09-05+011.jpeg',
-    title: '',
+    title: 'Woljeong Bridge in Gyungju',
     date: '2023-12-31',
   },
 };

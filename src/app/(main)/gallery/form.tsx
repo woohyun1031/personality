@@ -1,5 +1,6 @@
 'use client';
 
+import { useResize } from '@/hooks/useResize';
 import ImageForm from '@components/ImageForm';
 import { galleryMock } from '@constants/imagesMock';
 import { useRouter } from 'next/navigation';
@@ -9,6 +10,18 @@ export default function Form() {
   const router = useRouter();
   const startRef = React.useRef<HTMLDivElement>(null);
   const endRef = React.useRef<HTMLDivElement>(null);
+
+  const isSm = useResize('(min-width: 640px)');
+  const isMd = useResize('(min-width: 768px)');
+  const isLg = useResize('(min-width: 1024px)');
+  const isXl = useResize('(min-width: 1280px)');
+
+  const currentWidthSize = React.useMemo(() => {
+    if (isXl || isLg) return 250;
+    if (isMd) return 208;
+    if (isSm) return 170;
+    return 170;
+  }, [isSm, isMd, isLg, isXl]);
 
   React.useEffect(() => {
     document.body.style.overflowY = 'hidden';
@@ -72,7 +85,7 @@ export default function Form() {
           const minY = 400 * (step - 1);
           const clientWidth = document.body.clientWidth;
           const x = Math.floor(
-            Math.random() * (clientWidth - (208 + 128)) + 64,
+            Math.random() * (clientWidth - (currentWidthSize + 128)) + 64,
           );
           const y = Math.floor(Math.random() * (maxY - minY) + minY);
           return (
@@ -88,6 +101,7 @@ export default function Form() {
               id={key}
               index={idx}
               initPosition={{ x, y }}
+              width={currentWidthSize}
             />
           );
         })

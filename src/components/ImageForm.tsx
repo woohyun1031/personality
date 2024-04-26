@@ -30,6 +30,7 @@ const ImageForm = React.forwardRef(
       id,
       index,
       initPosition,
+      width,
     }: {
       id: string;
       index: number;
@@ -37,6 +38,7 @@ const ImageForm = React.forwardRef(
         x: number;
         y: number;
       };
+      width: number;
     },
     ref?: React.ForwardedRef<HTMLDivElement>,
   ) => {
@@ -81,7 +83,7 @@ const ImageForm = React.forwardRef(
         }}
         className={`absolute z-${
           levels[level].zindex
-        } w-[208px] cursor-pointer shadow-custom duration-500
+        } w-[${width}px] cursor-pointer shadow-custom duration-500
       ${
         loading
           ? 'invisible opacity-0 scale-[0.7]'
@@ -112,7 +114,7 @@ const ImageForm = React.forwardRef(
           "
           >
             <span className="ml-4 text-xs text-gray-900 dark:text-white">
-              2022.10.31 The GyengJu
+              {galleryMock[id].title}
             </span>
           </div>
         </div>
