@@ -83,6 +83,10 @@ export default function Desk() {
         >
           <Link
             href="/books"
+            onClick={(e) => {
+              e.preventDefault();
+              openNoAccessModal();
+            }}
             className={`common-animation group relative h-full ${componentSizes.books} cursor-pointer text-gray-600 dark:text-white`}
           >
             <BooksIcon />
@@ -94,10 +98,6 @@ export default function Desk() {
           </Link>
           <Link
             href="/movie"
-            onClick={(e) => {
-              e.preventDefault();
-              openNoAccessModal();
-            }}
             className={`${componentSizes.mac} common-animation group relative z-[50] h-full cursor-pointer overflow-hidden text-gray-600 duration-300 dark:text-white`}
           >
             <div className="relative overflow-hidden">
