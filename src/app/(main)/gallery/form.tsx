@@ -54,12 +54,14 @@ export default function Form() {
   const startYRef = useRef<number | null>(null);
 
   const getBounds = (index: number) => {
-    const viewportHeight = window.innerHeight;
-    const maxOffset = viewportHeight * 0.2;
-    return {
-      minY: positionsRef.current[index].y - maxOffset,
-      maxY: positionsRef.current[index].y + maxOffset,
-    };
+    if (window) {
+      const viewportHeight = window.innerHeight;
+      const maxOffset = viewportHeight * 0.2;
+      return {
+        minY: positionsRef.current[index].y - maxOffset,
+        maxY: positionsRef.current[index].y + maxOffset,
+      };
+    }
   };
 
   const updatePositions = () => {
