@@ -38,7 +38,7 @@ export default function Form() {
 
   const columns = Math.ceil(Math.sqrt(galleryLength));
 
-  const xSpacing = window.innerWidth / columns;
+  const xSpacing = 1200 / columns;
   const rowSpacing = totalHeight / galleryLength;
 
   const positionsRef = useRef<{ x: number; y: number }[]>(
@@ -109,7 +109,7 @@ export default function Form() {
       className="relative h-full cursor-grab justify-center overflow-hidden p-[64px]"
       onMouseDown={handleMouseDown}
     >
-      {typeof window !== 'undefined' &&
+      {typeof document !== 'undefined' &&
         Object.entries(galleryMock).map(([key], idx, array) => {
           console.log(key);
           return (
