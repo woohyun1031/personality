@@ -1,16 +1,25 @@
 'use client';
 
 import { useResize } from '@/hooks/useResize';
-import ImageForm from '@components/ImageForm';
 import { galleryMock } from '@constants/imagesMock';
 import { useRouter } from 'next/navigation';
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import ImageForm from '@components/ImageForm';
+
+export const levels = {
+  1: { zindex: 2, speedFactor: 1 },
+  2: { zindex: 35, speedFactor: 1.5 },
+  3: { zindex: 90, speedFactor: 2 },
+  4: { zindex: 120, speedFactor: 2.5 },
+  5: { zindex: 300, speedFactor: 3.5 },
+};
+
+export const getLevel = (index: number) => ((index % 5) + 1) as 1 | 2 | 3;
 
 export default function Form() {
   const router = useRouter();
-  const startRef = React.useRef<HTMLDivElement>(null);
-  const endRef = React.useRef<HTMLDivElement>(null);
-
+  const startRef = useRef<HTMLDivElement>(null);
+  const endRef = useRef<HTMLDivElement>(null);
   const isSm = useResize('(min-width: 640px)');
   const isMd = useResize('(min-width: 768px)');
   const isLg = useResize('(min-width: 1024px)');
@@ -23,102 +32,99 @@ export default function Form() {
     return 170;
   }, [isSm, isMd, isLg, isXl]);
 
-  React.useEffect(() => {
-    document.body.style.overflowY = 'hidden';
-    return () => {
-      document.body.style.overflowY = 'auto';
-    };
-  }, []);
+  const galleryLength = Object.keys(galleryMock).length;
 
-  function setTouchStart(e: React.TouchEvent<HTMLDivElement>) {
+  const totalHeight = Math.max(1000, galleryLength * 100);
+
+  const columns = Math.ceil(Math.sqrt(galleryLength));
+
+  const xSpacing = window.innerWidth / columns;
+  const rowSpacing = totalHeight / galleryLength;
+
+  const positionsRef = useRef<{ x: number; y: number }[]>(
+    Object.keys(galleryMock)
+      .map((_, idx) => ({
+        x: xSpacing * (idx % columns) + Math.random() * 100,
+        y: rowSpacing * idx + Math.random() * 100,
+      }))
+      .map((value) => ({ value, sort: Math.random() }))
+      .sort((a, b) => a.sort - b.sort)
+      .map(({ value }) => value),
+  );
+  const startYRef = useRef<number | null>(null);
+
+  const getBounds = (index: number) => {
+    const viewportHeight = window.innerHeight;
+    const maxOffset = viewportHeight * 0.2;
+    return {
+      minY: positionsRef.current[index].y - maxOffset,
+      maxY: positionsRef.current[index].y + maxOffset,
+    };
+  };
+
+  const updatePositions = () => {
+    document.querySelectorAll('.movable').forEach((el, index) => {
+      (el as HTMLElement).style.top = `${positionsRef.current[index].y}px`;
+      (el as HTMLElement).style.left = `${positionsRef.current[index].x}px`;
+    });
+  };
+
+  const handleMouseDown = (e: React.MouseEvent) => {
     e.preventDefault();
-    const mouseMoveHandler = (event: TouchEvent) => {
+    startYRef.current = e.clientY;
+
+    const onMouseMove = (event: MouseEvent) => {
       event.preventDefault();
-      const startRec = startRef?.current?.getBoundingClientRect();
-      const endRec = endRef?.current?.getBoundingClientRect();
-      const value = (e.touches[0].pageY - event.touches[0].pageY) / 2;
-      if (value <= 0 && startRec && startRec.top <= 80) {
-        document.setY = value;
-      } else if (value >= 0 && endRec && endRec.top >= 270) {
-        document.setY = value;
+      if (startYRef.current !== null) {
+        const deltaY = event.clientY - startYRef.current;
+
+        positionsRef.current = positionsRef.current.map((pos, index) => {
+          const bounds = getBounds(index);
+          const level = getLevel(index);
+          const speedFactor = levels[level].speedFactor;
+
+          const newY = pos.y + deltaY * speedFactor * 0.2;
+          return {
+            x: pos.x,
+            y: Math.max(bounds.minY, Math.min(newY, bounds.maxY)),
+          };
+        });
+
+        requestAnimationFrame(updatePositions);
+        startYRef.current = event.clientY;
       }
     };
-    const mouseUpHandler = (event: TouchEvent) => {
-      event.preventDefault();
-      document.removeEventListener('touchmove', mouseMoveHandler);
-    };
-    document.addEventListener('touchmove', mouseMoveHandler);
-    document.addEventListener('touchend', mouseUpHandler, { once: true });
-  }
 
-  function setMouseDown(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
-    e.preventDefault();
-    const mouseMoveHandler = (event: MouseEvent) => {
-      event.preventDefault();
-      const startRec = startRef?.current?.getBoundingClientRect();
-      const endRec = endRef?.current?.getBoundingClientRect();
-      const value = (e.pageY - event.pageY) / 2;
-      if (value <= 0 && startRec && startRec.top <= 80) {
-        document.setY = value;
-      } else if (value >= 0 && endRec && endRec.top >= 270) {
-        document.setY = value;
-      }
+    const onMouseUp = () => {
+      startYRef.current = null;
+      document.removeEventListener('mousemove', onMouseMove);
     };
-    const mouseUpHandler = (event: MouseEvent) => {
-      event.preventDefault();
-      document.removeEventListener('mousemove', mouseMoveHandler);
-    };
-    document.addEventListener('mousemove', mouseMoveHandler);
-    document.addEventListener('mouseup', mouseUpHandler, { once: true });
-  }
+
+    document.addEventListener('mousemove', onMouseMove);
+    document.addEventListener('mouseup', onMouseUp, { once: true });
+  };
 
   return (
     <div
-      className={`relative h-full cursor-grab justify-center overflow-hidden p-[64px]`}
-      onTouchStart={setTouchStart}
-      onMouseDown={setMouseDown}
+      className="relative h-full cursor-grab justify-center overflow-hidden p-[64px]"
+      onMouseDown={handleMouseDown}
     >
-      {typeof document !== 'undefined' ? (
+      {typeof window !== 'undefined' &&
         Object.entries(galleryMock).map(([key], idx, array) => {
-          const step = Math.ceil((idx + 1) / 3);
-          const maxY = 400 * step;
-          const minY = 400 * (step - 1);
-          const clientWidth = document.body.clientWidth;
-          const x = Math.floor(
-            Math.random() * (clientWidth - (currentWidthSize + 128)) + 64,
-          );
-          const y = Math.floor(Math.random() * (maxY - minY) + minY);
+          console.log(key);
           return (
             <ImageForm
-              {...(idx === 0
-                ? {
-                    ref: startRef,
-                  }
-                : idx === array.length - 1
-                ? { ref: endRef }
-                : {})}
               key={key}
               id={key}
               index={idx}
-              initPosition={{ x, y }}
+              initPosition={positionsRef.current[idx]}
               width={currentWidthSize}
             />
           );
-        })
-      ) : (
-        <></>
-      )}
+        })}
       <button
-        className="w-100 h-100 fixed bottom-10 right-10 z-50 
-        rounded px-4 py-2 text-sm text-gray-600 duration-300 
-        hover:text-red-500 
-        dark:text-white dark:hover:text-red-500 
-        "
+        className="w-100 h-100 fixed bottom-10 right-10 z-50 rounded px-4 py-2 text-sm text-gray-600 duration-300 hover:text-red-500 dark:text-white dark:hover:text-red-500"
         onClick={() => router.refresh()}
-        onTouchStart={(e) => {
-          e.preventDefault();
-          router.refresh();
-        }}
       >
         reflow
       </button>

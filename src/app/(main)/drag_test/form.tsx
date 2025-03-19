@@ -1,5 +1,6 @@
 'use client';
 
+import { ModalDispatch } from '@contexts/modalContext';
 import React, { useRef, useEffect } from 'react';
 
 const mockImages = [
@@ -26,36 +27,38 @@ export const MovableComponent = ({
   name: string;
   image: string;
 }) => {
+  const { openModal } = React.useContext(ModalDispatch);
   return (
     <div
-      className="movable"
+      className="movable opacity-1 visible absolute cursor-pointer shadow-custom duration-500 scale-[1]"
       style={{
-        position: 'absolute',
         width: '220px',
         height: '80px',
-        background: '#ffffff',
-        color: '#333',
-        textAlign: 'center',
-        display: 'flex',
-        alignItems: 'center',
-        gap: '10px',
-        padding: '10px',
-        borderRadius: '12px',
-        boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
-        transition: 'top 0.1s ease-out',
+        transition: 'top 0.3s cubic-bezier(0.42, 2, 0.58, 1)',
       }}
+      onClick={() =>
+        openModal(
+          <div className="h-full w-full">
+            <img
+              src={image}
+              alt="img"
+              className="h-full w-full rounded-sm object-contain duration-300"
+            />
+            <div className="mt-3 flex justify-center">
+              <span className="ml-4 text-xs text-white">{name}</span>
+            </div>
+          </div>,
+        )
+      }
     >
-      <img
-        src={image}
-        alt={name}
-        style={{
-          width: '60px',
-          height: '60px',
-          borderRadius: '50%',
-          objectFit: 'cover',
-        }}
-      />
-      <span style={{ fontSize: '16px', fontWeight: 'bold' }}>{name}</span>
+      <div className="group relative h-auto w-full">
+        <img
+          src={image}
+          alt={name}
+          className="w-full rounded-sm border-8 border-gray-200 object-contain duration-300 group-hover:brightness-75 dark:border-white dark:group-hover:brightness-75"
+        />
+        <div className="h-[5px] w-full bg-gray-400 dark:bg-gray-900" />
+      </div>
     </div>
   );
 };
