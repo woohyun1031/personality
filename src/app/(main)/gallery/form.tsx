@@ -88,7 +88,7 @@ export default function Form() {
           const newY = pos.y + deltaY * speedFactor * 0.2;
           return {
             x: pos.x,
-            y: Math.max(bounds.minY, Math.min(newY, bounds.maxY)),
+            y: Math.max(bounds?.minY ?? 0, Math.min(newY, bounds?.maxY ?? 0)),
           };
         });
 
